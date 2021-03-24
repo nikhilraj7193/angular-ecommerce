@@ -1,0 +1,13 @@
+.card-items {
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    border-width: 2px;
+    border-color: rgb(46, 46, 46);
+}
+
+.items-image {
+    width: 100%;
+    height: min-content;
+}
