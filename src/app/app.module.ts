@@ -10,6 +10,8 @@ import { ItemsComponent } from './components/welcome-page/items/items.component'
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { QuickShopComponent } from './components/product-page/quick-shop/quick-shop.component';
 import { CategoriesComponent } from './components/product-page/categories/categories.component';
+import { ProductsComponent } from './components/product-page/products/products.component';
+import { CardPlaceholderComponent } from './components/navigation/card-placeholder/card-placeholder.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { CategoriesComponent } from './components/product-page/categories/catego
     ItemsComponent,
     ProductPageComponent,
     QuickShopComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ProductsComponent,
+    CardPlaceholderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Category } from './category'
 
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.css']
 })
-export class ItemsComponent implements OnInit {
+export class ItemsComponent  {
+ 
+  @Input() category: Category;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Output() select: EventEmitter<Category> = new EventEmitter<Category>();
+  
+  browse() {
+    this.select.emit(this.category);
+     }
 
 }
