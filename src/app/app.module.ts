@@ -12,6 +12,7 @@ import { QuickShopComponent } from './components/product-page/quick-shop/quick-s
 import { CategoriesComponent } from './components/product-page/categories/categories.component';
 import { ProductsComponent } from './components/product-page/products/products.component';
 import { CardPlaceholderComponent } from './components/navigation/card-placeholder/card-placeholder.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CardPlaceholderComponent } from './components/navigation/card-placehold
     QuickShopComponent,
     CategoriesComponent,
     ProductsComponent,
-    CardPlaceholderComponent
+    CardPlaceholderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

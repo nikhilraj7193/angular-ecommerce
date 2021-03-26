@@ -27,4 +27,20 @@ var categories: Category[] = [
    
 export function getCategories() {
     return categories;
-}   
+} 
+
+export function getCategory(id: string): Category {
+    for (let i = 0; i < categories.length; i++) {
+    if (categories[i].id === id) {
+    return categories[i];
+        }
+    }
+    throw new CategoryNotFoundException(`Category ${id} not found`);
+}
+
+export class CategoryNotFoundException extends Error {
+   constructor(message?: string) {
+   super(message);
+    }
+}
+   
