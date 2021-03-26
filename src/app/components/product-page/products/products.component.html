@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4" *ngFor= "let product of products">
             <div class="card card-css">
-                <img class="card-img-top img-fluid center-block product-item" src="http://placehold.it/270x171" alt="Product 1">
+                <img class="card-img-top img-fluid center-block product-item" src="http://placehold.it/270x171" alt="{{ product.title}}">
                 <div class="card-block">
                     <h4 class="card-title">{{ product.title }}</h4>
                     <h4 class="card-subtitle">

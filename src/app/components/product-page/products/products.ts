@@ -44,21 +44,28 @@ var products: Product[] = [
     { id: '17', categoryId: '6', title: 'Pear', price: 4.25, isSpecial: false, imageL: 'http://placehold.it/1110x480', imageS: 'http://placehold.it/270x171', desc: 'The pear is any of several tree and shrub species of genus Pyrus, in the family Rosaceae.' }
 ];
 
-export function getProducts() {
- return products;
-}
 
-export function getProduct(id: string): Product {
-    for (let i = 0; i < products.length; i++) {
-        if (products[i].id === id) {
-            return products[i];
-        }
+export function getProducts(category?: string, search?: string) {
+    if (category) {
+        return products.filter(
+            (product: Product, index: number, array: Product[]) => {
+            return product.categoryId === category;
+        });
+    } else if (search) {
+        let lowSearch = search.toLowerCase();
+         return products.filter(
+            (product: Product, index: number, array: Product[]) => {
+            return product.title.toLowerCase().
+            indexOf(lowSearch) != -1;
+         });
+    } else {
+        return products;
     }
-    throw new ProductNotFoundException(`Product ${id} not found`);
-    }
+}
 
 export class ProductNotFoundException extends Error {
     constructor(message?: string) {
         super(message);
     }
 }
+
