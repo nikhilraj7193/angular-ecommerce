@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Category } from './category'
+import { Router } from '@angular/router';
+
+import { Category } from './category';
 
 @Component({
   selector: 'app-items',
@@ -8,6 +10,8 @@ import { Category } from './category'
 })
 export class ItemsComponent  {
  
+  constructor( private router: Router) {}
+
   @Input() category: Category;
 
   @Output() select: EventEmitter<Category> = new EventEmitter<Category>();
@@ -16,4 +20,9 @@ export class ItemsComponent  {
     this.select.emit(this.category);
      }
 
+     filterProducts(category: Category) {
+       this.router.navigate(['./products'], {
+         queryParams: { category: category.id }
+       })
+     }
 }

@@ -5,12 +5,7 @@
         </div>
         <div class="card-block">
             <div class="list-group">
-                <a href="#" class="list-group-item">All</a>
-                <a href="#" class="list-group-item">Meat</a>
-                <a href="#" class="list-group-item">Seafood</a>
-                <a href="#" class="list-group-item">Bakery</a>
-                <a href="#" class="list-group-item">Dairy</a>
-                <a href="#" class="list-group-item">Fruit & Vegetables</a>
+                <a href="#" class="list-group-item" *ngFor="let category of categories" (click)= "filterProducts(category)">{{category.title}}</a>
             </div>        
         </div>
     </div> 

@@ -1,12 +1,11 @@
-
-  <div class="card card-items">
-    <img class="card-img-top center-block product-item items-image" src= "{{category.image}}" alt="{{category.title}}">
-    <div class="card-block">
-      <h1 class="card-title">{{category.title}}</h1>
-      <p class="card-text">{{category.desc}}</p>
-      <a (click)= "browse()" class="btn btn-primary">Browse</a>
-    </div>
+<div class="card card-items">
+  <img class="card-img-top center-block product-item items-image" src= "{{category.image}}" alt="{{category.title}}">
+  <div class="card-block">
+    <h1 class="card-title">{{category.title}}</h1>
+    <p class="card-text">{{category.desc}}</p>
+    <a (click)= "filterProducts(category)" class="btn btn-primary">Browse</a>
   </div>
+</div>
 
 
     

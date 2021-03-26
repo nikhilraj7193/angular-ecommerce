@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from  '@angular/router';
+
+import { getProducts } from '../products/products';
 
 @Component({
   selector: 'app-quick-shop',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuickShopComponent implements OnInit {
 
-  constructor() { }
+  products = getProducts();
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
 
+  searchProduct(value: string) {
+    this.router.navigate(['/products'],
+    { queryParams: { search: value} });
+  }
 }
+
