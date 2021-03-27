@@ -66,6 +66,14 @@ export class ProductService {
             return this.products;
         }
     }
+
+    getProduct(id: string): Product {
+        for (let i = 0; i < this.products.length; i++) {
+       if (this.products[i].id === id) {
+       return this.products[i];}
+    }
+   }
+       
 }
 
 

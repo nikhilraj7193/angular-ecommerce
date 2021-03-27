@@ -1,0 +1,16 @@
+.image-style {
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgb(66, 65, 65);
+    border-width: 2px;
+    margin-top: 10px;
+    width: min-content;
+    height: 350px;
+}
+
+.card-style {
+    border-style: solid;
+    border-color: rgb(107, 106, 106);
+    border-width: 2px;
+    
+}

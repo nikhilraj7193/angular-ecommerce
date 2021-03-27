@@ -74,7 +74,7 @@ export class CartService {
             this.cart.amount -= item.amount;
            }
 
-        private findItem(id: string): CartItem {
+        findItem(id: string): CartItem {
             for (let i = 0; i < this.cart.items.length; i++) {
                 if (this.cart.items[i].product.id === id) {
                     return this.cart.items[i];
@@ -91,5 +91,11 @@ export class CartService {
             // Remove element from array
                 this.cart.items.splice(indx, 1);
             }
+        }
+
+        clearCart() {
+            this.cart.items = [];
+            this.cart.amount = 0;
+            this.cart.count = 0;
         }
 }

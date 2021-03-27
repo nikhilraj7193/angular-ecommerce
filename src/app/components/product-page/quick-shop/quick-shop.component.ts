@@ -11,6 +11,7 @@ import { Product, ProductService } from '../products/products.service';
 export class QuickShopComponent implements OnInit {
 
    products: Product[]
+   disabled: boolean = true;
 
   constructor(private router : Router, private productService: ProductService) {
     this.products  = this.productService.getProducts();
@@ -22,6 +23,14 @@ export class QuickShopComponent implements OnInit {
   searchProduct(value: string) {
     this.router.navigate(['/products'],
     { queryParams: { search: value} });
+  }
+
+  searchChanged(value: string) {
+    if(value) {
+      this.disabled= false;
+    }else {
+      this.disabled= true;
+    }
   }
 }
 
