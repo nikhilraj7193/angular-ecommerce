@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 
-import { Product, getProducts } from './products';
+import { Product, ProductService } from './products.service';
+import { Cart, CartService } from './../../navigation/card-placeholder/cart.service'
 
 @Component({
   selector: 'app-products',
@@ -12,18 +13,22 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private router: ActivatedRoute) {
+  private cart: Cart;
+
+  constructor(private router: ActivatedRoute, private productService: ProductService, private cartService: CartService) {
       this.router
         .queryParams
         .subscribe(params => {
           let category: string = params['category'];
           let search: string = params['search'];
           // Return filtered data from getProducts function
-          let products: Product[] = getProducts(category, search);
+          let products: Product[] = this.productService.getProducts(category, search);
           // Transform products to appropriate data
           // to display
           this.products = this.transform(products);
       });
+
+      this.cart = this.cartService.cart;
     }
   
   transform(source: Product[]) {
@@ -33,6 +38,10 @@ export class ProductsComponent implements OnInit {
     
     return products;
   }
+
+  addToCart(product:Product) {
+    this.cartService.addProduct(product);
+   }
        
   ngOnInit(): void {
   }

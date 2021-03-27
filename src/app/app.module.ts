@@ -13,6 +13,8 @@ import { CategoriesComponent } from './components/product-page/categories/catego
 import { ProductsComponent } from './components/product-page/products/products.component';
 import { CardPlaceholderComponent } from './components/navigation/card-placeholder/card-placeholder.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProductService } from './components/product-page/products/products.service';
+import { CartService } from './components/navigation/card-placeholder/cart.service';
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ProductService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

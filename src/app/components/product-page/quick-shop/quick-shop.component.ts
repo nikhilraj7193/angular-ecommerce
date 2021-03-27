@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from  '@angular/router';
 
-import { getProducts } from '../products/products';
+import { Product, ProductService } from '../products/products.service';
 
 @Component({
   selector: 'app-quick-shop',
@@ -10,8 +10,11 @@ import { getProducts } from '../products/products';
 })
 export class QuickShopComponent implements OnInit {
 
-  products = getProducts();
-  constructor(private router : Router) { }
+   products: Product[]
+
+  constructor(private router : Router, private productService: ProductService) {
+    this.products  = this.productService.getProducts();
+   }
 
   ngOnInit(): void {
   }

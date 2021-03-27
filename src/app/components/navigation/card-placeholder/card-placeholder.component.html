@@ -8,35 +8,33 @@
                 <th>Sum</th>
             </tr>
         </thead>
-    <tfoot>
-        <tr>
-            <td colspan="4" style="text-align:center">
-                Total:<strong>$20.00</strong><br>
-                <div class="btn-group">
-                    <button class="btn btn-primary">View Cart</button>
-                    <button class="btn btn-success">Checkout</button>
-                </div>
-            </td>
-        </tr>
-    </tfoot>
-    <tbody>
-        <tr>
-            <td >Product 1</td>
-            <td >$10</td>
-            <td >x1<br>
-                <span class="delete-cart">Del</span>
-            </td>
-            <td >$10.00</td>
-        </tr>
-        <tr>
-            <td >Product 2</td>
-            <td >$5.00</td>
-            <td >x2<br>
-                <span class="delete-cart">Del</span>
-            </td>
-            <td >$10.00</td>
-        </tr>
-    </tbody>
+        <tbody>
+            <tr *ngFor='let item of cart.items'>
+                <td >{{item.product.title}}</td>
+                <td >{{item.product.price | currency:'USD':true:'1.2-2'}}</td>
+                <td >{{item.count}}</td>
+                <td >{{item.amount | currency:'USD':true:'1.2-2'}}</td>
+            </tr>
+        </tbody>    
+        <tfoot>
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    Total:<strong>{{cart.amount | currency:'USD':true:'1.2-2'}}</strong><br>
+                </td>
+            </tr>
+        </tfoot>
     </table>
+    <div class="row">
+        <div class="col-md-12">
+            <a [routerLink]="['/cart']" class="btn btn-primary btn-cart" style="float: right;">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Cart
+            </a>
+            <a [routerLink]="['/checkout']" class="btn btn-success btn-cart" style="float: right;">
+                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                Checkout
+            </a>
+        </div>
+    </div>
 </div>
 

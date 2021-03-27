@@ -27,7 +27,9 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdown"
                 data-toggle="dropdown" href="#" role="button"
-                aria-haspopup="true" aria-expanded="false">Cart: 2 item(s) - $20.00
+                aria-haspopup="true" aria-expanded="false">
+                Cart: {{cart.amount | currency:'USD':true:'1.2-2'}}
+                ({{cart.count}} items)
                 <span class="caret"></span></a>
                 <app-card-placeholder></app-card-placeholder>
             </li>
